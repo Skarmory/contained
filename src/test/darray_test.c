@@ -1,10 +1,10 @@
-#include "darray_test.h"
+#include "test/darray_test.h"
 
 #include <stddef.h>
 #include <stdio.h>
 
 #include "darray.h"
-#include "testing.h"
+#include "test/testing.h"
 
 void darray_test_init(void)
 {

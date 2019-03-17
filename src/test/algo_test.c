@@ -1,10 +1,10 @@
-#include "algo_test.h"
+#include "test/algo_test.h"
 
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdint.h>
 #include "algo.h"
-#include "testing.h"
+#include "test/testing.h"
 
 #define ARRAY_SIZE 9
 

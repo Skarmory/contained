@@ -1,7 +1,7 @@
-#include "testing.h"
-#include "array_test.h"
-#include "algo_test.h"
-#include "darray_test.h"
+#include "test/testing.h"
+#include "test/array_test.h"
+#include "test/algo_test.h"
+#include "test/darray_test.h"
 
 #include <stdio.h>
 

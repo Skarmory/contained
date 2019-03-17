@@ -4,7 +4,9 @@ LDFLAGS=
 NAME=program
 
 INCL=$(wildcard include/*.h)
+INCL+=$(wildcard include/test/*.h)
 SRCS=$(wildcard src/*.c)
+SRCS+=$(wildcard src/test/*.c)
 OBJS=$(SRCS:.c=.o)
 DEPS=$(SRCS:.c=.d)
 

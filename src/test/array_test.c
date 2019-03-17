@@ -1,9 +1,9 @@
-#include "array_test.h"
+#include "test/array_test.h"
 
 #include <stdbool.h>
 #include <stdio.h>
 #include "array.h"
-#include "testing.h"
+#include "test/testing.h"
 
 struct TestStruct
 {
@@ -38,7 +38,7 @@ void array_test_get(void)
     array(int, 100) arr1;
     array_init(&arr1);
 
-    printf("Test Cases: array_test_at\n");
+    printf("Test Cases: array_test_get\n");
     {
 
         TEST_CONTEXT(array_fill(&arr1, 0));
