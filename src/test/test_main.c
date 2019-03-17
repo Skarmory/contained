@@ -2,6 +2,7 @@
 #include "test/array_test.h"
 #include "test/algo_test.h"
 #include "test/darray_test.h"
+#include "test/rbt_test.h"
 
 #include <stdio.h>
 
@@ -15,6 +16,7 @@ int main(int argc, char** argv)
     array_test_run_all();
     algo_test_run_all();
     darray_test_run_all();
+    rbt_test_run_all();
 
     TEST_SUMMARY;
 
