@@ -35,9 +35,9 @@ static void* _get_data_ptr(darray* obj, size_t index)
     return ((uint8_t*)obj->data + (obj->type_size * index));
 }
 
-static size_t _size_bytes(darray* obj, size_t index)
+static size_t _size_bytes(darray* obj, size_t count)
 {
-    return obj->type_size * index;
+    return obj->type_size * count;
 }
 
 /* ---------- Creational ---------- */
@@ -59,6 +59,12 @@ void darray_uninit(darray* obj)
 }
 
 /* ---------- Mutators ---------- */
+
+void darray_hard_clear(darray* obj, int8_t clear_to)
+{
+    memset(obj->data, clear_to, _size_bytes(obj, obj->count));
+    obj->count = 0;
+}
 
 void darray_push_back(darray* obj, void* data)
 {
@@ -96,7 +102,7 @@ void darray_reserve(darray* obj, size_t capacity)
     if(obj->capacity >= capacity)
         return;
 
-    _die_if_true(realloc(obj->data, obj->type_size * capacity) == NULL, "darray_shrink(): realloc failed\n");
+    _die_if_true(realloc(obj->data, obj->type_size * capacity) == NULL, "darray_reserve(): realloc failed\n");
     
     obj->capacity = capacity;
 }

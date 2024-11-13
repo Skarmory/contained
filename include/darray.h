@@ -42,6 +42,9 @@ void darray_uninit(darray* obj);
 // Resets the count to 0
 #define darray_clear(obj) ((obj)->count = 0)
 
+// Resets the count to 0 and zeroes the data
+void darray_hard_clear(darray* obj, int8_t clear_to);
+
 // Adds an element to the end
 void darray_push_back(darray* obj, void* data);
 
@@ -63,6 +66,9 @@ void darray_erase(darray* obj, size_t index);
 
 // Removes an element at a given index, maintaining element ordering
 void darray_remove(darray* obj, size_t index);
+
+// Moves data from objb to obja, and zeroes out objb
+void darray_move(darray* obja, darray* objb);
 
 /* ---------- Capacity ---------- */
 

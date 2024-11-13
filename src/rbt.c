@@ -303,7 +303,7 @@ void rb_tree_print(rb_tree* tree)
         level          = queue[queue_current].level;
         tmp            = queue[queue_current].node;
         parent_padding = queue[queue_current].padding;
-        
+
         if(tmp->left)
             queue[queue_end++] = (rb_print_node){ .node = tmp->left,  .level = level+1, .padding = (parent_padding - _rb_tree_subtree_size(tmp->left->right)) - 1 };
 
@@ -318,7 +318,7 @@ void rb_tree_print(rb_tree* tree)
     level = queue[queue_current].level;
     size_t prev_padding = 0;
     while(queue_current < queue_end)
-    { 
+    {
         if(level != queue[queue_current].level)
         {
             prev_padding = 0;

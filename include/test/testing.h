@@ -25,7 +25,7 @@ extern TestingData __testing_global;
                 break;\
             }\
         }\
-        printf("\tTEST_RANGE_EQ\t(%s == %s) ", #actual, #expect);\
+        printf("\t\tTEST_RANGE_EQ\t(%s == %s) ", #actual, #expect);\
         printf("%s\n", __test_success ? "SUCCESS" : "FAILURE");\
     }\
     while(0)
@@ -33,7 +33,7 @@ extern TestingData __testing_global;
 #define TEST_EQ(actual, expect)\
     do\
     {\
-        printf("\tTEST_EQ\t(%s, %s) ", #actual, #expect);\
+        printf("\t\tTEST_EQ (%s, %s) ", #actual, #expect);\
         bool res = actual == expect;\
         if(res)\
             ++__testing_global.tests_passed;\
@@ -43,9 +43,36 @@ extern TestingData __testing_global;
     }\
     while(0)
 
+#define TEST_NEQ(actual, expect)\
+    do\
+    {\
+            printf("\t\tTEST_NEQ (%s, %s) ", #actual, #expect);\
+            bool res = actual != expect;\
+            if(res)\
+                ++__testing_global.tests_passed;\
+            else\
+                ++__testing_global.tests_failed;\
+            printf("%s\n", (res) ? "SUCCESS" : "FAILURE");\
+    }\
+    while(0)
+
+#define TEST_EVAL_INT_TYPE(actual, expect)\
+    do\
+    {\
+        printf("\t\tEVAL: %s: %d =? %s: %d\n", #actual, actual, #expect, expect);\
+    }\
+    while(0)
+
 #define TEST_CONTEXT(op)\
-    printf("\tEXEC: %s\n", #op);\
+    printf("\t\tEXEC: %s\n", #op);\
     op;
+
+#define TEST_CASE(name)\
+    do\
+    {\
+        printf("\tCASE: %s\n", name);\
+    }\
+    while(0)
 
 #define TEST_SUMMARY\
     do\
